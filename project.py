@@ -1,4 +1,3 @@
-# project.py
 import tkinter as tk
 import webbrowser
 from tkinter import messagebox, simpledialog
@@ -56,7 +55,13 @@ class PastryShopApp:
     def open_about_us(self):
         """Display the About Us page with detailed information."""
         self.clear_frame(self.main_menu_frame)
-       
+        about_us_label = tk.Label(
+            self.main_menu_frame,
+            text="About Us:\nWelcome to Allée Iris Pâtisserie.\nWe offer the best pastries made with love!",
+            font=("Times New Roman", 18),
+            bg="#FFB6C1"
+        )
+        about_us_label.pack(pady=50)
 
     def open_contact_info(self):
         """Display the Contact Information page."""
@@ -74,38 +79,45 @@ class PastryShopApp:
     def show_shop_page(self):
         """Display the Shop Pastry Products page."""
         self.clear_frame(self.main_menu_frame)
-        # (Shop page implementation omitted for brevity)
+        shop_label = tk.Label(
+            self.main_menu_frame,
+            text="Shop Page:\nHere you can browse and purchase pastries!",
+            font=("Times New Roman", 18),
+            bg="#FFB6C1"
+        )
+        shop_label.pack(pady=50)
 
     def clear_frame(self, frame):
         """Clear all widgets in the current frame."""
         for widget in frame.winfo_children():
             widget.destroy()
 
-    def calculate_total(cart):
+    def calculate_total(self):
         """Calculate the total price of items in the cart."""
-        return sum(item["price"] * item["quantity"] for item in cart)
+        return sum(item["price"] * item["quantity"] for item in self.cart)
 
-    def add_item_to_cart(cart, product_name, price, quantity):
+    def add_item_to_cart(self, product_name, price, quantity):
         """Add an item to the cart."""
         if quantity <= 0:
             raise ValueError("Quantity must be greater than zero.")
-        for item in cart:
+        for item in self.cart:
             if item["product"] == product_name:
                 item["quantity"] += quantity
-                return 
-        cart.append({"product": product _name, "price": price, "quantity": quantity})
-        return cart
+                return
+        self.cart.append({"product": product_name, "price": price, "quantity": quantity})
 
-    def clear_cart(cart):
-        """Clear all items from the cart."""
-        cart.clear()
-        return cart
+    def open_login_page(self):
+        """Display the login page."""
+        self.clear_frame(self.main_menu_frame)
+        login_label = tk.Label(self.main_menu_frame, text="Login Page:\nPlease log in to continue.", font=("Times New Roman", 18), bg="#FFB6C1")
+        login_label.pack(pady=50)
 
-    def start_application():
-      """Initialize and start the Tkinter application."""
-      root = tk.Tk()
-      app = PastryShopApp(root)
-      root.mainloop()
+    def start_application(self):
+        """Initialize and start the Tkinter application."""
+        self.root.mainloop()
 
-    if __name__ == "__main__":
-     start_application()
+# Start the application
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PastryShopApp(root)
+    app.start_application()
