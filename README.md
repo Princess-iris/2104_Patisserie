@@ -2,7 +2,7 @@
 
 Project Title: Pastry Shop Ordering System
 
-Video Demonstration: https://youtu.be/rkVeMhz5dvI?si=6sSoKxJ7bxlXbzod
+Video Demonstration: [https://youtu.be/rkVeMhz5dvI?si=6sSoKxJ7bxlXbzod](https://youtu.be/-ZtzfgOEE6E)
 
 Description:     Our Allee and Iris Patisserie is a graphical user interface (GUI) application built using Python's Tkinter library. 
              It serves as a management system for a pastry shop, allowing users to browse various pastry categories, add items to 
